@@ -17,17 +17,20 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" method="post" action="insertcompany">
+              <form role="form" method="post" action="{{url('inserttax')}}">
                 @csrf
                 <div class="card-body">
                 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Tax Type</label>
-                    <input type="text" class="form-control"  placeholder="Tax Type" name="cname">
+                    <select class="form-control" name="taxtype">
+                      <option value="" selected="selected">Select</option>
+                      <option value="gsttax">GST Tax</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Percentage</label>
-                    <input type="text" class="form-control"  placeholder="Percentage" name="cname">
+                    <input type="text" class="form-control"  placeholder="Percentage" name="percentage">
                   </div>
                 </div>
                  

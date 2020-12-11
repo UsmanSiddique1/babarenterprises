@@ -68,3 +68,4 @@ Route::get('add-major-department',[DepartmentController::class,'addmajordepartme
  //tax
  Route::get('add-tax',[DTaxController::class,'addtax'])->name('addtax');
  Route::get('view-tax',[DTaxController::class,'viewtax'])->name('viewtax');
+ Route::post('inserttax',[DTaxController::class,'inserttax'])->name('inserttax');

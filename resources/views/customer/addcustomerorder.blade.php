@@ -26,7 +26,7 @@
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Major Department</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
-                  <select class="form-control major" name="bname">
+                  <select class="form-control major mname" name="mname">
                     <option value="" selected="">status</option>
                     @foreach($majordpt as $major)
                    <option value="{{$major->id}}">{{$major->dname}}</option>
@@ -37,11 +37,9 @@
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Sub Department</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
-                  <select class="form-control" name="bname">
-                    <option value="" selected="">status</option>
-                   <option>A</option>
-                   <option>B</option>
-                   <option>C</option>
+                  <select class="form-control sname" name="sname">
+                      <option>Select </option>              
+                   
                   </select>
 
                   </div>
@@ -80,15 +78,15 @@
                     <input type="date" class="form-control"  placeholder="Delivered Date" name="phoneno">
                   </div>
                     <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Tax</label>
+                    <label for="exampleInputEmail1"> GST Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
                      <select class="form-control" name="bname">
-                    <option value="" selected="">status</option>
-                   <option>A</option>
-                   <option>B</option>
-                   <option>C</option>
+                    <option value="" selected="">Option</option>
+                    <option value="17">Apply GST</option>
+                    <option value="0">Not Apply GST</option>
                   </select>
                   </div>
+                  
                     <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Sub Total</label>
                     <input type="text" class="form-control"  placeholder="Sub Total" name="phoneno">
@@ -96,10 +94,7 @@
                    
                 </div>
                 
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
+                  
                 </div>
                 <!-- /.card-body -->
 
@@ -114,5 +109,32 @@
 
  
   </section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+
+            $('.mname').change(function() {
+
+              console.log("working");
+          $('.sname').html('<option disabled selected>=== Select PO ===</option>')
+          let dist = {!! json_encode($subdpt->toArray(), JSON_HEX_TAG) !!};
+
+          console.log(dist);
+
+          
+          _.forEach(dist, function(value, key) {
+            if(value.mdpt_id === $('.mname').children("option:selected").val()) {
+              $('.sname').append('<option id='+value.id+' value='+value.sname+'>'+value.sname+'</option>');
+            }
+          });
+         });
+
+
+
+    });
+</script>
 @endsection
