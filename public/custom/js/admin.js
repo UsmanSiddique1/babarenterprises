@@ -33,10 +33,11 @@ $('.addRow3').on('click', function(){
 		var tr ='<tr>'+ 
 						
 					   
-						 '<td><input  class="form-control" type="text"  placeholder="Particular" name="particular[]" style="width: auto;"></td>'+
-                         '<td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"style="width: auto;"></td>'+
-                         '<td><input  class="form-control" type="text"  placeholder="Rate" name="rate[]" style="width: auto;"></td>'+
-                         '<td><input  class="form-control" type="text"  placeholder="Amount" name="amount[]" style="width: auto;"></td>'+
+						 '<td><input  class="form-control" type="text"  placeholder="Particular" name="particular[]"></td>'+
+                         '<td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"></td>'+
+                         '<td><input  class="form-control" type="text"  placeholder="Purchase Rate" name="prate[]"></td>'+
+                         '<td><input  class="form-control" type="text"  placeholder="Sale Rate" name="srate[]"></td>'+
+                         '<td><input  class="form-control" type="text"  placeholder="Amount" name="amount[]"></td>'+
 	                       
 						'<td><a href="#" class="btn btn-danger remove">Remove</a></td>'+
 						

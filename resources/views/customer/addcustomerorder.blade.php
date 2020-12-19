@@ -22,8 +22,16 @@
                 @csrf
                 <div class="card-body">
                   <div class="row">
-                  
-                  <div class="form-group col-md-6">
+                   <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Customer Name</label>
+                     <select class="form-control major mname" name="mname">
+                    <option value="" selected="">status</option>
+                    @foreach($majordpt as $major)
+                   <option value="{{$major->id}}">{{$major->dname}}</option>
+                   @endforeach
+                  </select>
+                  </div>
+                  <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Major Department</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
                   <select class="form-control major mname" name="mname">
@@ -34,7 +42,7 @@
                   </select>
 
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Sub Department</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
                   <select class="form-control sname" name="sname">
@@ -43,6 +51,7 @@
                   </select>
 
                   </div>
+                  
                 </div>
                     <hr>
       <table class="table table-responsive w-100 d-block d-md-table">

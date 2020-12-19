@@ -6,7 +6,8 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DTaxController;
 use App\Http\Controllers\DepartmentController;
-
+use App\Http\Controllers\SlipController;
+use App\Http\Controllers\AssistantController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,10 +63,15 @@ Route::get('add-major-department',[DepartmentController::class,'addmajordepartme
  Route::get('deletesdpt/{id}',[DepartmentController::class,'deletesdpt'])->name('deletesdpt');
   Route::post('add_modal',[DepartmentController::class,'addmodal'])->name('add_modal');
 
-
-
-
  //tax
  Route::get('add-tax',[DTaxController::class,'addtax'])->name('addtax');
  Route::get('view-tax',[DTaxController::class,'viewtax'])->name('viewtax');
  Route::post('inserttax',[DTaxController::class,'inserttax'])->name('inserttax');
+
+ //slip
+ Route::get('add-slip',[SlipController::class,'addslip'])->name('addslips');
+ Route::get('view-slip',[SlipController::class,'viewslip'])->name('viewslips');
+
+ //assistant
+ Route::get('add-assistant',[AssistantController::class,'addassistant'])->name('addassistants');
+ Route::get('view-assistant',[AssistantController::class,'viewassistant'])->name('viewassistants');

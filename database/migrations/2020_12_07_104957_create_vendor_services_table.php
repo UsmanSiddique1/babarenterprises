@@ -19,7 +19,8 @@ class CreateVendorServicesTable extends Migration
             $table->integer('bill_id');
             $table->string('particular');
             $table->string('qty');
-            $table->string('rate');
+            $table->string('prate');
+            $table->string('srate');
             $table->string('amount');
             $table->timestamps();
         });

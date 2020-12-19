@@ -9,5 +9,5 @@ class VendorService extends Model
 {
     use HasFactory;
 
-    protected $fillable=['vendor_id','bill_id','particular','qty','rate','amount'];
+    protected $fillable=['vendor_id','bill_id','particular','qty','prate','srate','amount'];
 }

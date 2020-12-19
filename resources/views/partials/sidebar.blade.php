@@ -24,6 +24,51 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+
+               <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                  Create 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="add-order-customer" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="add-order" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bill</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="add-vendor" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Vendor</p>
+                </a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="add-customer" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Customer</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a href="add-slip" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Govt Slip</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
              <li class="nav-item has-treeview ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -138,6 +183,52 @@
                 <a href="view-department" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Departments Details</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Slip
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="add-slip" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create Slip</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view-slip" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View All Slip</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+           <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Assistant
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="add-assistant" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create Assistant</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view-assistant" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View All Assistant</p>
                 </a>
               </li>
             </ul>

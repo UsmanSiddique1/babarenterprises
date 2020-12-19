@@ -42,7 +42,8 @@
           <tr>
             <th>Particular</th>
             <th>Qty</th>
-            <th>Rate</th>
+            <th>Purchase Rate</th>
+            <th>Sale Rate</th>
             <th>Amount</th>
             <th><a href="#" class="btn btn-info addRow3">Add</a></th>
           </tr>
@@ -50,10 +51,11 @@
         <tbody>
           <tr>
             
-              <td><input  class="form-control" type="text"  placeholder="Particular" name="particular[]" style="width: auto;"></td>
-             <td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]" style="width: auto;"></td>
-              <td><input  class="form-control" type="text"  placeholder="Rate" name="rate[]" style="width: auto;"></td>
-             <td><input  class="form-control" type="text"  placeholder="Amount" name="amount[]" style="width: auto;"></td>
+              <td><input  class="form-control" type="text"  placeholder="Particular" name="particular[]"></td>
+             <td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"></td>
+              <td><input  class="form-control" type="text"  placeholder="Purchase Rate" name="prate[]"></td>
+               <td><input  class="form-control" type="text"  placeholder="Sale Rate" name="srate[]"></td>
+             <td><input  class="form-control" type="text"  placeholder="Amount" name="amount[]"></td>
             <td><a href="#" class="btn btn-danger remove">Remove</a></td>
             
           </tr>
