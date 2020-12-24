@@ -82,11 +82,7 @@
       </table>
       <hr>
       <div class="row">
-                   <div class="form-group col-md-4">
-                    <label for="exampleInputEmail1">Delivered Date</label>
-                    <input type="date" class="form-control"  placeholder="Delivered Date" name="phoneno">
-                  </div>
-                    <div class="form-group col-md-4">
+        <div class="form-group col-md-4">
                     <label for="exampleInputEmail1"> GST Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
                      <select class="form-control" name="bname">
@@ -95,8 +91,33 @@
                     <option value="0">Not Apply GST</option>
                   </select>
                   </div>
+                   <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1"> PST Tax</label>
+                    <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
+                     <select class="form-control" name="bname">
+                    <option value="" selected="">Option</option>
+                    <option value="17">Apply PST</option>
+                    <option value="0">Not Apply PST</option>
+                  </select>
+                  </div>
+                   <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1"> Income Tax</label>
+                    <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
+                     <select class="form-control" name="bname">
+                    <option value="" selected="">Option</option>
+                    <option value="17">Apply Income</option>
+                    <option value="0">Not Apply Income</option>
+                  </select>
+                  </div>
+      </div>
+      <div class="row">
+                   <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Delivered Date</label>
+                    <input type="date" class="form-control"  placeholder="Delivered Date" name="phoneno">
+                  </div>
+                    
                   
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Sub Total</label>
                     <input type="text" class="form-control"  placeholder="Sub Total" name="phoneno">
                   </div>

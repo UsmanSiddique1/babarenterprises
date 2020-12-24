@@ -16,5 +16,11 @@ class SlipController extends Controller
 
     	return  view('slip.viewslip');
     }
+
+    public function viewinvoice(){
+
+
+    	 return  view('slip.viewinvoice');
+    }
     
 }

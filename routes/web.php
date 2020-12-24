@@ -72,6 +72,9 @@ Route::get('add-major-department',[DepartmentController::class,'addmajordepartme
  Route::get('add-slip',[SlipController::class,'addslip'])->name('addslips');
  Route::get('view-slip',[SlipController::class,'viewslip'])->name('viewslips');
 
+
+ Route::get('view-invoice',[SlipController::class,'viewinvoice'])->name('viewinvoice');
+
  //assistant
  Route::get('add-assistant',[AssistantController::class,'addassistant'])->name('addassistants');
  Route::get('view-assistant',[AssistantController::class,'viewassistant'])->name('viewassistants');
