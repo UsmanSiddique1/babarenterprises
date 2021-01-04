@@ -8,6 +8,7 @@ use App\Http\Controllers\DTaxController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\SlipController;
 use App\Http\Controllers\AssistantController;
+use App\Http\Controllers\InvoiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,3 +79,8 @@ Route::get('add-major-department',[DepartmentController::class,'addmajordepartme
  //assistant
  Route::get('add-assistant',[AssistantController::class,'addassistant'])->name('addassistants');
  Route::get('view-assistant',[AssistantController::class,'viewassistant'])->name('viewassistants');
+
+
+
+ //invoice
+Route::post('insertinvoice',[InvoiceController::class,'insertinvoice'])->name('insertinvoice');

@@ -217,70 +217,43 @@
                 <div class="row contacts">
                     <div class="col invoice-to">
                         <div class="text-gray-light">INVOICE TO:</div>
-                        <h2 class="to">John Doe</h2>
-                        <div class="address">796 Silver Harbour, TX 79273, US</div>
-                        <div class="email"><a href="mailto:john@example.com">john@example.com</a></div>
+                        <h2 class="to">{{$customerinfo->cname}}</h2>
+                        <div class="address">{{$customerinfo->address}}</div>
+                        <div class="email"><a href="mailto:john@example.com">{{$customerinfo->email}}</a></div>
                     </div>
                     <div class="col invoice-details">
-                        <h1 class="invoice-id">INVOICE 3-2-1</h1>
+                        <h1 class="invoice-id">INVOICE NO: {{$invoicedetail->id}}</h1>
                         <div class="date">Date of Invoice: 01/10/2018</div>
-                        <div class="date">Due Date: 30/10/2018</div>
+                        <div class="date">Due Date: {{$invoicedetail->ddate}}</div>
                     </div>
                 </div>
                 <table border="0" cellspacing="0" cellpadding="0">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th class="text-left">DESCRIPTION</th>
-                            <th class="text-right">HOUR PRICE</th>
-                            <th class="text-right">HOURS</th>
-                            <th class="text-right">TOTAL</th>
+                            <th class="text-left">PARTICULAR</th>
+                            <th class="text-right">QUANITY</th>
+                            <th class="text-right">SINGLE PRICE</th>
+                            <th class="text-right">AMOUNT</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($invoiceservice as $key =>  $invoice)
                         <tr>
-                            <td class="no">04</td>
-                            <td class="text-left"><h3>
-                                <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                Youtube channel
-                                </a>
-                                </h3>
-                               <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
-                                   Useful videos
-                               </a> 
-                               to improve your Javascript skills. Subscribe and stay tuned :)
+                            <td class="no">{{++$key}}</td>
+                            <td class="text-left"><h3>{{$invoice->particular}}</h3> 
                             </td>
-                            <td class="unit">$0.00</td>
-                            <td class="qty">100</td>
-                            <td class="total">$0.00</td>
+                            <td class="unit">{{$invoice->qty}}</td>
+                           <td class="unit">{{App\Models\VendorService::where('particular',$invoice->particular)->first()->srate}}</td>
+                            <td class="total">{{$invoice->amount}}</td>
                         </tr>
-                        <tr>
-                            <td class="no">01</td>
-                            <td class="text-left"><h3>Website Design</h3>Creating a recognizable design solution based on the company's existing visual identity</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">30</td>
-                            <td class="total">$1,200.00</td>
-                        </tr>
-                        <tr>
-                            <td class="no">02</td>
-                            <td class="text-left"><h3>Website Development</h3>Developing a Content Management System-based Website</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">80</td>
-                            <td class="total">$3,200.00</td>
-                        </tr>
-                        <tr>
-                            <td class="no">03</td>
-                            <td class="text-left"><h3>Search Engines Optimization</h3>Optimize the site for search engines (SEO)</td>
-                            <td class="unit">$40.00</td>
-                            <td class="qty">20</td>
-                            <td class="total">$800.00</td>
-                        </tr>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">SUBTOTAL</td>
-                            <td>$5,200.00</td>
+                            <td>{{$invoicedetail->subtotal}}</td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>

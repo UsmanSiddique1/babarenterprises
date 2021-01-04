@@ -67,8 +67,8 @@ class VendorController extends Controller
                      'vendor_id'=>$vendorname,
                     'qty'=>$request->qty[$item],
                     'particular'=>$request->particular[$item],
-                    'prate'=>$request->rate[$item],
-                    'srate'=>$request->rate[$item],
+                    'prate'=>$request->prate[$item],
+                    'srate'=>$request->srate[$item],
                     'amount'=>$request->amount[$item],
                     
                 );

@@ -18,24 +18,24 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" method="post" action="insertcompany">
+              <form role="form" method="post" action="insertinvoice">
                 @csrf
                 <div class="card-body">
                   <div class="row">
                    <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Customer Name</label>
-                     <select class="form-control major mname" name="mname">
+                     <select class="form-control major" name="customer_id">
                     <option value="" selected="">status</option>
-                    @foreach($majordpt as $major)
-                   <option value="{{$major->id}}">{{$major->dname}}</option>
+                    @foreach($customer as $cus)
+                   <option value="{{$cus->id}}">{{$cus->cname}}</option>
                    @endforeach
                   </select>
                   </div>
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Major Department</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
-                  <select class="form-control major mname" name="mname">
-                    <option value="" selected="">status</option>
+                  <select class="form-control mname" name="mdpt_id">
+                    <option value="">status</option>
                     @foreach($majordpt as $major)
                    <option value="{{$major->id}}">{{$major->dname}}</option>
                    @endforeach
@@ -45,7 +45,7 @@
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Sub Department</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
-                  <select class="form-control sname" name="sname">
+                  <select class="form-control sname" name="sdpt_id">
                       <option>Select </option>              
                    
                   </select>
@@ -59,6 +59,7 @@
           <tr>
             <th>Particular</th>
             <th>Qty</th>
+            <th>Amount</th>
             
             <th><a href="#" class="btn btn-info addRow2">Add</a></th>
           </tr>
@@ -66,13 +67,16 @@
         <tbody>
           <tr>
             
-             <td><select class="form-control"  style="width: auto;" name="category[]">
+             <td><select class="form-control major"   name="particular[]">
                <option value="" selected="">status</option>
-              <option>Sofa</option>
-              <option>Chair</option>
-              <option>Set</option>
+              @foreach($particular as $for)
+
+                <option>{{$for->particular}}</option>
+
+              @endforeach
             </select></td>
-             <td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]" style="width: auto;"></td>
+             <td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]" ></td>
+             <td><input  class="form-control" type="text"  placeholder="amount" name="amount[]" ></td>
              
             
             <td><a href="#" class="btn btn-danger remove">Remove</a></td>
@@ -82,44 +86,53 @@
       </table>
       <hr>
       <div class="row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> GST Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
-                     <select class="form-control" name="bname">
+                     <select class="form-control" name="gsttax">
                     <option value="" selected="">Option</option>
                     <option value="17">Apply GST</option>
                     <option value="0">Not Apply GST</option>
                   </select>
                   </div>
-                   <div class="form-group col-md-4">
+                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> PST Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
-                     <select class="form-control" name="bname">
+                     <select class="form-control" name="psttax">
                     <option value="" selected="">Option</option>
-                    <option value="17">Apply PST</option>
+                    <option value="16">Apply PST</option>
                     <option value="0">Not Apply PST</option>
                   </select>
                   </div>
-                   <div class="form-group col-md-4">
+                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> Income Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
-                     <select class="form-control" name="bname">
+                     <select class="form-control" name="incometax">
                     <option value="" selected="">Option</option>
-                    <option value="17">Apply Income</option>
+                    <option value="4.5">Apply Income</option>
                     <option value="0">Not Apply Income</option>
+                  </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputEmail1"> Punjab Income Tax</label>
+                    <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
+                     <select class="form-control" name="punjabincometax">
+                    <option value="" selected="">Option</option>
+                    <option value="10">Apply punjab Income Tax</option>
+                    <option value="0">Not Apply punjab Income Tax</option>
                   </select>
                   </div>
       </div>
       <div class="row">
                    <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Delivered Date</label>
-                    <input type="date" class="form-control"  placeholder="Delivered Date" name="phoneno">
+                    <input type="date" class="form-control"  placeholder="Delivered Date" name="ddate">
                   </div>
                     
                   
                     <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Sub Total</label>
-                    <input type="text" class="form-control"  placeholder="Sub Total" name="phoneno">
+                    <input type="text" class="form-control"  placeholder="Sub Total" name="subtotal">
                   </div>
                    
                 </div>
@@ -145,21 +158,80 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+
+
+
+$('.addRow2').on('click', function(){
+     
+     addRow3();
+  });
+  function addRow3(){
+
+    var tr ='<tr>'+ 
+            
+             
+             
+             '<td><select class="form-control major"   name="particular[]">'+
+               '<option value="" selected="">status</option>'+
+              '@foreach($particular as $for)'+
+
+                '<option>{{$for->particular}}</option>'+
+
+              '@endforeach'+
+            '</select></td>'+
+                        '<td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"></td>'+
+                     '<td><input  class="form-control" type="text"  placeholder="amount" name="amount[]" ></td>'+
+                                                 
+            '<td><a href="#" class="btn btn-danger remove">Remove</a></td>'+
+            
+          '</tr>';
+          $('tbody').append(tr); 
+  };
+
+  $('tbody').on('click', '.remove', function(){
+       $(this).parent().parent().remove();
+
+  });
+
+
     $(document).ready(function(){
+      
 
             $('.mname').change(function() {
 
-              console.log("working");
+              var mname = $('.mname').val();
+
+              // alert(mname);
+
+                 // var selectedCountry = $(this).children("option:selected").val();
+                 // alert(selectedCountry);
+               // alert($('#mname :selected').val());
+
+                
+            //  console.log("working");
+          
+
           $('.sname').html('<option disabled selected>=== Select PO ===</option>')
           let dist = {!! json_encode($subdpt->toArray(), JSON_HEX_TAG) !!};
 
-          console.log(dist);
+        //  console.log(dist);
 
           
           _.forEach(dist, function(value, key) {
-            if(value.mdpt_id === $('.mname').children("option:selected").val()) {
-              $('.sname').append('<option id='+value.id+' value='+value.sname+'>'+value.sname+'</option>');
+           //console.log(value.mdpt_id);          
+       
+            if(value.mdpt_id == mname)              
+            {
+              console.log("working");
+                
+              $('.sname').append('<option id='+value.id+' value='+value.id+'>'+value.sname+'</option>');
             }
+            else
+            {
+
+             console.log("jj");
+            }
+
           });
          });
 

@@ -7,7 +7,7 @@ use App\Models\Customer;
 use App\Models\MajorDepartment;
 use App\Models\SubDepartment;
 use App\Models\Tax;
-
+use App\Models\VendorService;
 class CustomerController extends Controller
 {
     public function addcustomer(){
@@ -27,6 +27,10 @@ class CustomerController extends Controller
           
           $majordpt=MajorDepartment::all();
           $subdpt=SubDepartment::all();
+          $particular=VendorService::all();
+          $customer=Customer::all();
+
+         // return $particular;
 
           // $saletax=Tax::where('taxtype','saletax')->get();
           // $gsttax=Tax::where('taxtype','gsttax')->get();
@@ -35,7 +39,7 @@ class CustomerController extends Controller
 
           // return $gsttax;
 
-    	return view('customer.addcustomerorder',compact('majordpt','subdpt'));
+    	return view('customer.addcustomerorder',compact('majordpt','subdpt','particular','customer'));
     }
     public function viewcustomerorder(){
 
