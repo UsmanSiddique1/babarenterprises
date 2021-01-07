@@ -8,6 +8,9 @@ use App\Models\MajorDepartment;
 use App\Models\SubDepartment;
 use App\Models\Tax;
 use App\Models\VendorService;
+use App\Models\trader;
+
+
 class CustomerController extends Controller
 {
     public function addcustomer(){
@@ -29,7 +32,7 @@ class CustomerController extends Controller
           $subdpt=SubDepartment::all();
           $particular=VendorService::all();
           $customer=Customer::all();
-
+$trader=trader::all();
          // return $particular;
 
           // $saletax=Tax::where('taxtype','saletax')->get();
@@ -39,7 +42,7 @@ class CustomerController extends Controller
 
           // return $gsttax;
 
-    	return view('customer.addcustomerorder',compact('majordpt','subdpt','particular','customer'));
+    	return view('customer.addcustomerorder',compact('majordpt','subdpt','particular','customer','trader'));
     }
     public function viewcustomerorder(){
 

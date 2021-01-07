@@ -239,6 +239,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Traders
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="add-trader" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create Traders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view-trader" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View All Traders</p>
+                </a>
+              </li>
+            </ul>
+          </li>
            <!-- <li class="nav-item has-treeview ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>

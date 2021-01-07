@@ -9,6 +9,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\SlipController;
 use App\Http\Controllers\AssistantController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\TraderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,3 +85,11 @@ Route::get('add-major-department',[DepartmentController::class,'addmajordepartme
 
  //invoice
 Route::post('insertinvoice',[InvoiceController::class,'insertinvoice'])->name('insertinvoice');
+
+// trader
+ Route::get('add-trader',[TraderController::class,'addtrader'])->name('addtraders');
+Route::get('view-trader',[TraderController::class,'viewtrader'])->name('viewtraders');
+Route::post('inserttrader',[TraderController::class,'inserttrader'])->name('inserttrader');
+ Route::get('delete/{id}',[TraderController::class,'deletetrader'])->name('deletetrader');
+ Route::get('delete/{id}',[TraderController::class,'deletetrader'])->name('deletetrader');
+  Route::post('addmodal1',[TraderController::class,'addmodal1'])->name('addmodal1');

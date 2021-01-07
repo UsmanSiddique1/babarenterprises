@@ -21,6 +21,19 @@
               <form role="form" method="post" action="insertinvoice">
                 @csrf
                 <div class="card-body">
+
+                  <div class="row justify-content-center mb-5 ">
+                    <div class="col-md-4 border p-3 shadow">
+                    <label>Trader Name</label>
+                    <select class="form-control major" name="trade_name">
+                    <option value="" selected="">Select</option>
+                    @foreach($trader as $tr)
+                    <option value="{{$tr->id}}">{{$tr->tname}}</option>
+                   @endforeach
+                  </select>
+                </div>
+                  </div>
+                  <hr>
                   <div class="row">
                    <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Customer Name</label>
@@ -61,7 +74,7 @@
             <th>Qty</th>
             <th>Amount</th>
             
-            <th><a href="#" class="btn btn-info addRow2">Add</a></th>
+            <th><a href="#" class="btn btn-info addRow2" onclick="event.preventDefault()">Add</a></th>
           </tr>
         </thead>
         <tbody>
@@ -79,7 +92,7 @@
              <td><input  class="form-control" type="text"  placeholder="amount" name="amount[]" ></td>
              
             
-            <td><a href="#" class="btn btn-danger remove">Remove</a></td>
+            <td><a href="#" class="btn btn-danger remove " onclick="event.preventDefault()">Remove</a></td>
             
           </tr>
         </tbody>

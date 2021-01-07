@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\InvoiceDetail;
 use App\Models\InvoiceService;
 use App\Models\Customer;
+use App\Models\trader;
 class InvoiceController extends Controller
 {
     public function insertinvoice(Request $request){
 
 
          $data=$request->validate([
-         
+              'trade_name'=>'required|max:255',
                'customer_id'=>'required|max:255',
                'mdpt_id'=>'required|max:255',
                'sdpt_id'=>'required|max:255',
@@ -51,9 +52,10 @@ class InvoiceController extends Controller
           $customerinfo=Customer::where('id',$request['customer_id'])->first();
           $invoiceservice=InvoiceService::where('invoice_id',$invoice_id)->get();
           $invoicedetail=InvoiceDetail::where('customer_id',$request['customer_id'])->first();
+          $trader=trader::where('id',$request->trade_name)->first();
         
 
-         return  view('slip.viewinvoice',compact('customerinfo','invoiceservice','invoicedetail'));
+         return  view('slip.viewinvoice',compact('customerinfo','invoiceservice','invoicedetail','trader'));
         // return redirect()->back()->with('status', 'order added');
 
     }

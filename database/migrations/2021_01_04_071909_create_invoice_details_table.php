@@ -16,6 +16,7 @@ class CreateInvoiceDetailsTable extends Migration
         Schema::create('invoice_details', function (Blueprint $table) {
             $table->id();
             $table->string('customer_id');
+            $table->string('trade_name');
             $table->string('mdpt_id');
             $table->string('sdpt_id');
             $table->string('gsttax');
