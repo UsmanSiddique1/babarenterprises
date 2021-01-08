@@ -138,13 +138,14 @@
                   <p>Add Order</p>
                 </a>
               </li>
-             
+              
               <li class="nav-item">
                 <a href="view-order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Order</p>
                 </a>
               </li>
+              
             </ul>
           </li>
           <li class="nav-item has-treeview ">
@@ -285,6 +286,29 @@
               </li>
             </ul>
           </li> -->
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Product & Service
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="add-product1" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Product & Service</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view-service" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Product & Service</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

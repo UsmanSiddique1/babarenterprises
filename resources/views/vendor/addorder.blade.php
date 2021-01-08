@@ -26,7 +26,7 @@
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Vendor</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
-                  <select class="form-control major" name="vendor_id">
+                  <select class="form-control abc" name="vendor_id">
                     <option value="" selected="">status</option>
                   @foreach($vendor as $ven)
                   <option value="{{$ven->id}}">{{$ven->vname}}</option>
@@ -45,13 +45,19 @@
             <th>Purchase Rate</th>
             <th>Sale Rate</th>
             <th>Amount</th>
-            <th><a href="#" class="btn btn-info addRow3">Add</a></th>
+            <th><a href="#" class="btn btn-info product">Add</a></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            
-              <td><input  class="form-control" type="text"  placeholder="Particular" name="particular[]"></td>
+               <td>
+                  <select class="form-control abc" name="particular[]">
+                    <option value="" selected="">status</option>
+                  @foreach($product as $ven)
+                  <option>{{$ven->product}}</option>
+                  @endforeach
+                  </select>
+               </td>
              <td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"></td>
               <td><input  class="form-control" type="text"  placeholder="Purchase Rate" name="prate[]"></td>
                <td><input  class="form-control" type="text"  placeholder="Sale Rate" name="srate[]"></td>
@@ -89,5 +95,54 @@
 
  
   </section>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+  
+  $('.product').on('click', function(){
+     
+     addRow4();
+  });
+  function addRow4(){
+
+    var tr ='<tr>'+ 
+            
+             
+            '<td>'+
+                  '<select class="form-control abc" name="particular[]">'+
+                    '<option value="" selected="">status</option>'+
+                  '@foreach($product as $ven)'+
+                  '<option>{{$ven->product}}</option>'+
+                  '@endforeach'+
+                  '</select>'+
+             '</td>'+
+                         '<td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"></td>'+
+                         '<td><input  class="form-control" type="text"  placeholder="Purchase Rate" name="prate[]"></td>'+
+                         '<td><input  class="form-control" type="text"  placeholder="Sale Rate" name="srate[]"></td>'+
+                         '<td><input  class="form-control" type="text"  placeholder="Amount" name="amount[]"></td>'+
+                         
+            '<td><a href="#" class="btn btn-danger remove">Remove</a></td>'+
+            
+          '</tr>';
+          $('tbody').append(tr); 
+  };
+
+  $('tbody').on('click', '.remove', function(){
+       $(this).parent().parent().remove();
+
+  });
+
+
+    $(document).ready(function () {
+      $('select.abc').selectize({
+          sortField: 'text'
+      });
+  });
+
+
+</script>
 @endsection
+

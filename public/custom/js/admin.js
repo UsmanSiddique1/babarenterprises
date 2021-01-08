@@ -1,29 +1,20 @@
-
-//addcustomerorder
-	
-//addvendororder
-$('.addRow3').on('click', function(){
+$('.medicine').on('click', function(){
      
-     addRow4();
-	});
-	function addRow4(){
+     medicine_addRow();
+  });
+  function medicine_addRow(){
 
-		var tr ='<tr>'+ 
-						
-					   
-						 '<td><input  class="form-control" type="text"  placeholder="Particular" name="particular[]"></td>'+
-                         '<td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"></td>'+
-                         '<td><input  class="form-control" type="text"  placeholder="Purchase Rate" name="prate[]"></td>'+
-                         '<td><input  class="form-control" type="text"  placeholder="Sale Rate" name="srate[]"></td>'+
-                         '<td><input  class="form-control" type="text"  placeholder="Amount" name="amount[]"></td>'+
-	                       
-						'<td><a href="#" class="btn btn-danger remove">Remove</a></td>'+
-						
-					'</tr>';
-					$('tbody').append(tr); 
-	};
+    var tr ='<tr>'+ 
+          
+            '<td><input  class="form-control" type="text"  placeholder="Product & Service Name" name="product[]"></td>'+
+            '<td><a href="#" onclick="event.preventDefault()" class="btn btn-danger medicine_remove">Remove</a></td>'+
+            
+          '</tr>';
+          $('.medicine-tbody').append(tr); 
+  };
 
-	$('tbody').on('click', '.remove', function(){
+  $('tbody').on('click', '.medicine_remove', function(){
        $(this).parent().parent().remove();
 
-	});
+  });
+

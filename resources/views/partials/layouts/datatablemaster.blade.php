@@ -79,6 +79,11 @@
       });
   });
 
+$(document).ready(function () {
+      $('select.major1').selectize({
+          sortField: 'text'
+      });
+  });
 
 </script>
 

@@ -47,7 +47,7 @@
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Major Department</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
-                  <select class="form-control mname" name="mdpt_id">
+                  <select class="form-control mname major" name="mdpt_id">
                     <option value="">status</option>
                     @foreach($majordpt as $major)
                    <option value="{{$major->id}}">{{$major->dname}}</option>
@@ -58,7 +58,7 @@
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Sub Department</label>
                     <!-- <input type="text" class="form-control"  placeholder=" Brand Name" name="cname"> -->
-                  <select class="form-control sname" name="sdpt_id">
+                  <select class="form-control sname " name="sdpt_id">
                       <option>Select </option>              
                    
                   </select>
@@ -80,7 +80,7 @@
         <tbody>
           <tr>
             
-             <td><select class="form-control major"   name="particular[]">
+             <td><select class="form-control major1"   name="particular[]">
                <option value="" selected="">status</option>
               @foreach($particular as $for)
 
@@ -92,7 +92,7 @@
              <td><input  class="form-control" type="text"  placeholder="amount" name="amount[]" ></td>
              
             
-            <td><a href="#" class="btn btn-danger remove " onclick="event.preventDefault()">Remove</a></td>
+            <td><a href="#" class="btn btn-danger remove" onclick="event.preventDefault()">Remove</a></td>
             
           </tr>
         </tbody>
@@ -184,7 +184,7 @@ $('.addRow2').on('click', function(){
             
              
              
-             '<td><select class="form-control major"   name="particular[]">'+
+             '<td><select class="form-control major1"   name="particular[]">'+
                '<option value="" selected="">status</option>'+
               '@foreach($particular as $for)'+
 
@@ -195,7 +195,7 @@ $('.addRow2').on('click', function(){
                         '<td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"></td>'+
                      '<td><input  class="form-control" type="text"  placeholder="amount" name="amount[]" ></td>'+
                                                  
-            '<td><a href="#" class="btn btn-danger remove">Remove</a></td>'+
+            '<td><a href="#" class="btn btn-danger remove" onclick="event.preventDefault()">Remove</a></td>'+
             
           '</tr>';
           $('tbody').append(tr); 

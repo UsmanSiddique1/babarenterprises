@@ -49,7 +49,13 @@ Route::get('deletecustomer/{id}',[CustomerController::class,'deletecustomer'])->
  Route::post('insertvendor',[VendorController::class,'insertvendor'])->name('insertvendor');
  Route::post('insertvendororder',[VendorController::class,'insertvendororder'])->name('insertvendororder');
  Route::post('serachvendor',[VendorController::class,'serachvendor'])->name('serachvendors');
- 
+  Route::get('add-product1',[VendorController::class,'addproduct'])->name('addproducts');
+ Route::post('insertproduct',[VendorController::class,'insertproduct'])->name('insertproducts');
+
+
+Route::get('view-service',[VendorController::class,'viewservice'])->name('viewservices');
+Route::get('deleteservice/{id}',[VendorController::class,'deleteservice'])->name('deleteservice');
+Route::post('editservice',[VendorController::class,'editservice'])->name('editservices');
 
 
  //payment

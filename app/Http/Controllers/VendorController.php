@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\VendorBill;
 use App\Models\VendorService;
+use App\Models\VendorProduct;
 
 class VendorController extends Controller
 {
@@ -20,7 +21,8 @@ class VendorController extends Controller
    }
    public function addorder(){
    	  $vendor=Vendor::all();
-   		return view('vendor.addorder',compact('vendor'));
+      $product=VendorProduct::all();
+   		return view('vendor.addorder',compact('vendor','product'));
    }
    public function vieworder(){
    	$vendor=Vendor::all();
@@ -94,6 +96,75 @@ class VendorController extends Controller
          return view('vendor.vieworder',compact('vendor','detail'));
     }
 
+
+    public function addproduct(){
+
+      return view('productservice.addproductandservice');
+    }
+
+    public function insertproduct(Request $request){
+
+
+     // return $request;
+
+          if(count($request->product) > 0)        
+        {
+
+            foreach($request->product as $item=>$v){
+                $data2=array(
+                    
+                     
+                    'product'=>$request->product[$item],
+                    
+                );
+
+                $product = new VendorProduct($data2);
+                $product->save();
+
+            }
+
+        }
+
+return redirect()->back()->with('status','product Added');
+
+
+    }
+
+    public function viewservice(){
+
+
+      $medicines=VendorProduct::all();
+
+      return view('productservice.viewproductandservice',compact('medicines'));
+    }
+     
+
+     public function editservice(Request $request){
+
+
+        $id=$request['id'];
+
+        $product=$request['product'];
+
+        $edit=VendorProduct::where('id',$id)->first();
+
+        $edit->product=$product;
+
+        $edit->save();
+
+        return redirect()->back();
+      }
+
+      public function deleteservice($id){
+
+        $delete=VendorProduct::where('id',$id)->first();
+
+
+
+            $delete->delete();
+
+            return redirect()->back();
+      }
 }
 
 
