@@ -16,6 +16,16 @@
               <form method="post" action="{{route('editservices')}}">
                   @csrf
                 <input type="hidden" name="id" value="{{$med->id}}">
+
+                <label>Product Category</label>
+                <select class="form-control major" name="category_id" >
+                  <option selected="selected" value="">Select </option>
+                  @foreach($category as $cat)
+                  <option value="{{$cat->id}}">{{$cat->category}}</option>
+                  @endforeach
+                </select>
+                <br>
+                <label>Product Name</label>
                 <input type="text" name="product" class="form-control" value="{{$med->product}}">
                 <button class="btn btn-primary mt-3">Edit Product & Service</button>
                 

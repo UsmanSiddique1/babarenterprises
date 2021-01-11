@@ -7,7 +7,7 @@ use App\Models\Vendor;
 use App\Models\VendorBill;
 use App\Models\VendorService;
 use App\Models\VendorProduct;
-
+use App\Models\ProductCategory;
 class VendorController extends Controller
 {
    public function addvendor(){
@@ -98,14 +98,15 @@ class VendorController extends Controller
 
 
     public function addproduct(){
+      $category=ProductCategory::all();
 
-      return view('productservice.addproductandservice');
+      return view('productservice.addproductandservice',compact('category'));
     }
 
     public function insertproduct(Request $request){
 
 
-     // return $request;
+     //return $request;
 
           if(count($request->product) > 0)        
         {
@@ -115,10 +116,12 @@ class VendorController extends Controller
                     
                      
                     'product'=>$request->product[$item],
-                    
                 );
 
                 $product = new VendorProduct($data2);
+                $product->category_id=$request['category_id'];
+
+
                 $product->save();
 
             }
@@ -134,8 +137,9 @@ return redirect()->back()->with('status','product Added');
 
 
       $medicines=VendorProduct::all();
+      $category=ProductCategory::all();
 
-      return view('productservice.viewproductandservice',compact('medicines'));
+      return view('productservice.viewproductandservice',compact('medicines','category'));
     }
      
 
@@ -145,12 +149,25 @@ return redirect()->back()->with('status','product Added');
         $id=$request['id'];
 
         $product=$request['product'];
+       
 
-        $edit=VendorProduct::where('id',$id)->first();
+        
+        if($request['category_id'] == ""){
+                  
+            $edit=VendorProduct::where('id',$id)->first();
+            $edit->product=$product;
+            $edit->save();
+            //return $edit;
+        }
+        else
+        {
 
-        $edit->product=$product;
-
-        $edit->save();
+              $edit=VendorProduct::where('id',$id)->first();
+              $edit->product=$product;
+              $edit->category_id=$request['category_id'];
+              $edit->save();
+        //  return $edit;
+        }
 
         return redirect()->back();
       }
@@ -158,6 +175,75 @@ return redirect()->back()->with('status','product Added');
       public function deleteservice($id){
 
         $delete=VendorProduct::where('id',$id)->first();
+
+
+
+            $delete->delete();
+
+            return redirect()->back();
+      }
+      //product category
+      public function addcategory(){
+
+      return view('productservice.addproductcartegery');
+    }
+
+    public function insertcategory(Request $request){
+
+
+     // return $request;
+
+          if(count($request->category) > 0)        
+        {
+
+            foreach($request->category as $item=>$v){
+                $data2=array(
+                    
+                     
+                    'category'=>$request->category[$item],
+                    
+                );
+
+                $category = new ProductCategory($data2);
+                $category->save();
+
+            }
+
+        }
+
+return redirect()->back()->with('status','Category Added');
+
+
+    }
+
+    public function viewcategory(){
+
+
+      $medicines=ProductCategory::all();
+
+      return view('productservice.viewproductcategery',compact('medicines'));
+    }
+     
+
+     public function editcategory(Request $request){
+
+
+        $id=$request['id'];
+
+        $category=$request['category'];
+
+        $edit=ProductCategory::where('id',$id)->first();
+
+        $edit->category=$category;
+
+        $edit->save();
+
+        return redirect()->back();
+      }
+
+      public function deletecategory($id){
+
+        $delete=ProductCategory::where('id',$id)->first();
 
 
 

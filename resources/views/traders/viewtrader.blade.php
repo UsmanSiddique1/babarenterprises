@@ -21,6 +21,7 @@
                      <th>Trader Name</th>
                      <th>Phone No</th>
                      <th>Email</th>
+                     <th>Address</th>
                      <th>NTN</th>
                      <th>STRN</th>
                      <th>Edit</th>
@@ -39,10 +40,11 @@
                     <td>{{$de->tname}}</td>
                     <td>{{$de->phoneno}}</td>
                     <td>{{$de->email}}</td>
+                    <td>{{$de->address}}</td>
                     <td>{{$de->ntn}}</td>
                     <td>{{$de->strn}}</td>
                     <td>@include('partials.Modal.edittrader')</td>
-                    <td><a href="{{url('delete/'.$de->id)}}" class="btn btn-danger">Delete</a></td>
+                    <td>@include('partials.Modal.deletetrader')</td>
                   </tr>
                  @endforeach
                 

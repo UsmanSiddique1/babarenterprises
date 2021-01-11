@@ -15,6 +15,7 @@ class CreateVendorProductsTable extends Migration
     {
         Schema::create('vendor_products', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id');
             $table->string('product');
             $table->timestamps();
         });

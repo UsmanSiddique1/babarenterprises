@@ -307,6 +307,18 @@
                   <p>View Product & Service</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="add-category" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Product & Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="view-category" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Product & Category</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>

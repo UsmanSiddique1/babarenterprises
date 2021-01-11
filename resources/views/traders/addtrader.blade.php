@@ -37,13 +37,17 @@
                     <label for="exampleInputEmail1">Email</label>
                     <input type="email" class="form-control"  placeholder="Email" name="email">
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Treder NTN</label>
-                    <input type="text" class="form-control"  placeholder="Treder NTN" name="ntn">
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Address</label>
+                    <input type="text" class="form-control"  placeholder="Address" name="address">
                   </div>
-                  <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Treder STRN</label>
-                    <input type="text" class="form-control"  placeholder="Treder STRN" name="strn">
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Trader NTN</label>
+                    <input type="text" class="form-control"  placeholder="Trader NTN" name="ntn">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Trader STRN</label>
+                    <input type="text" class="form-control"  placeholder="Trader STRN" name="strn">
                   </div>
                   </div>
                 </div>

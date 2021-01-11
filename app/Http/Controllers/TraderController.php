@@ -23,6 +23,8 @@ public function inserttrader(Request $request){
 		      'phoneno'=>'max:255|',
 		      'email'=>'max:255',
 		      'ntn'=>'max:255',
+          'address'=>'max:255',
+          
 		      'strn'=>'max:255',
               
 
@@ -103,6 +105,7 @@ $update=trader::where('id',$id)->first();
    			$update->tname=$request['tname'];
 		    $update->phoneno=$request['phoneno'];
 		    $update->email=$request['email'];
+        $update->address=$request['address'];
 		    $update->ntn=$request['ntn'];
 		    $update->strn=$request['strn'];
 		     $update->save();

@@ -99,3 +99,13 @@ Route::post('inserttrader',[TraderController::class,'inserttrader'])->name('inse
  Route::get('delete/{id}',[TraderController::class,'deletetrader'])->name('deletetrader');
  Route::get('delete/{id}',[TraderController::class,'deletetrader'])->name('deletetrader');
   Route::post('addmodal1',[TraderController::class,'addmodal1'])->name('addmodal1');
+//prodct category
+
+
+  Route::get('add-category',[VendorController::class,'addcategory'])->name('addcategorys');
+ Route::post('insertcategory',[VendorController::class,'insertcategory'])->name('insertcategorys');
+
+
+Route::get('view-category',[VendorController::class,'viewcategory'])->name('viewcategorys');
+Route::get('deletecategory/{id}',[VendorController::class,'deletecategory'])->name('deletecategory');
+Route::post('editcategory',[VendorController::class,'editcategory'])->name('editcategorys');
