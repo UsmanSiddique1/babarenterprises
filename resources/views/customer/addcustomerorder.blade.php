@@ -11,6 +11,11 @@
         <div class="row justify-content-center align-items-center pt-3">
           <!-- left column -->
           <div class="col-md-12">
+            <h5 style="background:red">
+             @if($errors)
+                {{$errors}}
+           @endif
+           </h5>
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -66,7 +71,7 @@
                   </div>
                   
                 </div>
-                    <hr>
+                     <hr>
       <table class="table table-responsive w-100 d-block d-md-table">
         <thead>
           <tr>

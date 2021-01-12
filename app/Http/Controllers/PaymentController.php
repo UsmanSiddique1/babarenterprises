@@ -14,6 +14,11 @@ class PaymentController extends Controller
        	return view('payment.viewstatus');
        }
 
+public function singlecustomer(){
+
+
+       	return view('payment.singlecustomerdetail');
+       }
 
 
 

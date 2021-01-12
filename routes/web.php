@@ -60,6 +60,7 @@ Route::post('editservice',[VendorController::class,'editservice'])->name('editse
 
  //payment
 Route::get('view-status',[PaymentController::class,'viewstatus'])->name('viewstatus');
+Route::get('singlecustomer',[PaymentController::class,'singlecustomer'])->name('singlecustomers');
 
 //department
 Route::get('add-major-department',[DepartmentController::class,'addmajordepartment'])->name('addmajordepartment');
@@ -79,6 +80,7 @@ Route::get('add-major-department',[DepartmentController::class,'addmajordepartme
  //slip
  Route::get('add-slip',[SlipController::class,'addslip'])->name('addslips');
  Route::get('view-slip',[SlipController::class,'viewslip'])->name('viewslips');
+Route::post('insertslip',[SlipController::class,'insertslip'])->name('insertslips');
 
 
  Route::get('view-invoice',[SlipController::class,'viewinvoice'])->name('viewinvoice');

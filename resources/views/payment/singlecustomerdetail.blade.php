@@ -17,9 +17,9 @@
                   <thead>
                   <tr>
                     <th>Customer Name</th>
-                    <th>Total Payment</th>
-                    <th>Remaing</th>
-                    <th>Paid</th>
+                    <th> Major Department</th>
+                    <th>Sub Department</th>
+                    <th>Invoice No</th>
                     <th>Status</th>
                     <th>More</th>
                      
@@ -38,7 +38,7 @@
                      </td>
                      <td>Win 95+</td>
                      <td>a</td>
-                     <td><a href="{{route('singlecustomers')}}">detail</a></td>
+                     <td>a</td>
                      
                      
                   </tr>

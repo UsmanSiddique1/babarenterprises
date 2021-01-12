@@ -7,6 +7,7 @@ use App\Models\InvoiceDetail;
 use App\Models\InvoiceService;
 use App\Models\Customer;
 use App\Models\trader;
+use App\Models\Payment;
 class InvoiceController extends Controller
 {
     public function insertinvoice(Request $request){
@@ -49,11 +50,58 @@ class InvoiceController extends Controller
 
             }
         }
+
+
+
+
           $customerinfo=Customer::where('id',$request['customer_id'])->first();
           $invoiceservice=InvoiceService::where('invoice_id',$invoice_id)->get();
           $invoicedetail=InvoiceDetail::where('customer_id',$request['customer_id'])->first();
           $trader=trader::where('id',$request->trade_name)->first();
-        
+
+
+             
+               // $customer_id_paymet=$create->customer_id;
+
+    //return $customer_id_paymet;
+
+
+       if($create=Payment::where('customer_id',$request['customer_id'])->first())
+         
+
+           {
+             
+             $customer_total=$create->total_payment;
+               $customer_remaing=$create->remaing_payment;
+
+               $create->total_payment=$customer_total+$request['subtotal'];
+               $create->remaing_payment=$customer_remaing+$request['subtotal'];
+
+               $create->save();
+
+             //  return $create;
+
+
+           } 
+
+         else
+
+         {
+
+          $create=New Payment();
+           $create->customer_id=$request['customer_id'];
+           $create->total_payment=$request['subtotal'];
+           $create->remaing_payment=$request['subtotal'];
+           $create->status='unpaid';
+             
+             $create->save();
+
+             //return $create;
+
+
+         }         
+     
+
 
          return  view('slip.viewinvoice',compact('customerinfo','invoiceservice','invoicedetail','trader'));
         // return redirect()->back()->with('status', 'order added');
