@@ -8,6 +8,7 @@ use App\Models\VendorBill;
 use App\Models\VendorService;
 use App\Models\VendorProduct;
 use App\Models\ProductCategory;
+use App\Models\Inventry;
 class VendorController extends Controller
 {
    public function addvendor(){
@@ -20,8 +21,12 @@ class VendorController extends Controller
    		return view('vendor.viewvendor',compact('vendor'));
    }
    public function addorder(){
+
+
    	  $vendor=Vendor::all();
+
       $product=VendorProduct::all();
+
    		return view('vendor.addorder',compact('vendor','product'));
    }
    public function vieworder(){
@@ -74,6 +79,28 @@ class VendorController extends Controller
                     'amount'=>$request->amount[$item],
                     
                 );
+
+                 
+                       $product=$data2['particular'];
+
+                      // return $product;
+                       $productqty=$data2['qty'];
+
+                       if($create=Inventry::where('product_id',$product)->first())
+                       {
+                              $updateqty=$create->qty+$productqty;
+                              $create->qty=$updateqty;
+                              $create->save();
+                       }
+                       else
+                       {
+                             $Inventry=new Inventry();
+
+                             $Inventry->product_id=$product;
+                             $Inventry->qty= $productqty;
+                             $Inventry->save();
+
+                       }
 
                 $VendorService = new VendorService($data2);
                 $VendorService->save();
@@ -250,6 +277,16 @@ return redirect()->back()->with('status','Category Added');
             $delete->delete();
 
             return redirect()->back();
+      }
+
+
+      public function inventry(){
+
+
+
+        $inventry=Inventry::all();
+
+        return view('vendor.inventry',compact('inventry'));
       }
 }
 

@@ -50,12 +50,10 @@
 
 <!-- page script -->
 <script>
+
+
   $(function () {
     $("#example1").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-    });
-     $("#example3").DataTable({
       "responsive": true,
       "autoWidth": false,
     });
@@ -69,7 +67,6 @@
       "responsive": true,
     });
   });
-
 
 
 

@@ -56,11 +56,12 @@ Route::get('deletecustomer/{id}',[CustomerController::class,'deletecustomer'])->
 Route::get('view-service',[VendorController::class,'viewservice'])->name('viewservices');
 Route::get('deleteservice/{id}',[VendorController::class,'deleteservice'])->name('deleteservice');
 Route::post('editservice',[VendorController::class,'editservice'])->name('editservices');
+  Route::get('inventry',[VendorController::class,'inventry'])->name('inventry');
 
 
  //payment
 Route::get('view-status',[PaymentController::class,'viewstatus'])->name('viewstatus');
-Route::get('singlecustomer',[PaymentController::class,'singlecustomer'])->name('singlecustomers');
+Route::get('singlecustomer/{customer_id}',[PaymentController::class,'singlecustomer'])->name('singlecustomers');
 
 //department
 Route::get('add-major-department',[DepartmentController::class,'addmajordepartment'])->name('addmajordepartment');
@@ -81,9 +82,10 @@ Route::get('add-major-department',[DepartmentController::class,'addmajordepartme
  Route::get('add-slip',[SlipController::class,'addslip'])->name('addslips');
  Route::get('view-slip',[SlipController::class,'viewslip'])->name('viewslips');
 Route::post('insertslip',[SlipController::class,'insertslip'])->name('insertslips');
-
-
  Route::get('view-invoice',[SlipController::class,'viewinvoice'])->name('viewinvoice');
+ Route::post('serachcustomer',[SlipController::class,'serachcustomer'])->name('serachcustomer');
+
+
 
  //assistant
  Route::get('add-assistant',[AssistantController::class,'addassistant'])->name('addassistants');

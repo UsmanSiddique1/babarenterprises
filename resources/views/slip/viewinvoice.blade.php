@@ -462,7 +462,9 @@ a {
             <header>
                 <div class="row">
                     <div class="col">
-                        <a target="_blank" href="">
+
+                             <img src="{{asset('image/'.$trader->image)}}">
+                            <a target="_blank" href="">
                             <h1>{{$trader->tname}}</h1>
                             </a>
                     </div>

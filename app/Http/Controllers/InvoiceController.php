@@ -8,6 +8,8 @@ use App\Models\InvoiceService;
 use App\Models\Customer;
 use App\Models\trader;
 use App\Models\Payment;
+use App\Models\Inventry;
+use App\Models\VendorService;
 class InvoiceController extends Controller
 {
     public function insertinvoice(Request $request){
@@ -27,6 +29,7 @@ class InvoiceController extends Controller
         ]);
 
 			         $create=new InvoiceDetail($data);
+               $create->status='unpaid';
 			         $create->save();
 			         $invoice_id=$create->id;
 
@@ -44,9 +47,28 @@ class InvoiceController extends Controller
                     
                     
                 );
+                           
+
+
+                        $product=$data2['particular'];
+                        $productqty=$data2['qty'];
+                        $create=Inventry::where('product_id',$product)->first();
+                       
+                              $updateqty=$create->qty-$productqty;
+                              $create->qty=$updateqty;
+                              $create->save();
+                       
+                      
+                          
+                      // return $updateqty;
+                         
 
                 $InvoiceService = new InvoiceService($data2);
                 $InvoiceService->save();
+
+
+
+                
 
             }
         }

@@ -2,14 +2,15 @@
 @section('content')
 <section class="content-wrapper">
       <div class="container-fluid">
-         @if (session('status'))
+         
+        <div class="row justify-content-center align-items-center pt-3">
+          <!-- left column -->
+          <div class="col-md-8">
+            @if (session('status'))
         <div class="alert alert-success">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('status') }}
         </div>
     @endif
-        <div class="row justify-content-center align-items-center pt-3">
-          <!-- left column -->
-          <div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -42,11 +43,11 @@
                   </div> -->
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">PST Tax</label>
-                    <input type="text" class="form-control"  placeholder="PST Tax" name="psttax">
+                    <input type="text" class="form-control"  value="17%" name="psttax">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Income Tax</label>
-                    <input type="text" class="form-control"  placeholder="Income Tax" name="incometax">
+                    <input type="text" class="form-control"  value="17%" name="incometax">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">GOVT Return Bill</label>

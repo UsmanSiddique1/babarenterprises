@@ -9,6 +9,7 @@ use App\Models\SubDepartment;
 use App\Models\Tax;
 use App\Models\VendorService;
 use App\Models\trader;
+use App\Models\Inventry;
 
 
 class CustomerController extends Controller
@@ -30,7 +31,7 @@ class CustomerController extends Controller
           
           $majordpt=MajorDepartment::all();
           $subdpt=SubDepartment::all();
-          $particular=VendorService::all();
+          $particular=Inventry::all();
           $customer=Customer::all();
 $trader=trader::all();
          // return $particular;

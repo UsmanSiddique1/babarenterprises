@@ -54,7 +54,7 @@
                   <select class="form-control abc" name="particular[]">
                     <option value="" selected="">status</option>
                   @foreach($product as $ven)
-                  <option>{{$ven->product}}</option>
+                  <option value="{{$ven->id}}">{{$ven->product}}</option>
                   @endforeach
                   </select>
                </td>

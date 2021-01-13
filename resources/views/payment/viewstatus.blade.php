@@ -16,10 +16,11 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>No#</th>
                     <th>Customer Name</th>
                     <th>Total Payment</th>
                     <th>Remaing</th>
-                    <th>Paid</th>
+                  
                     <th>Status</th>
                     <th>More</th>
                      
@@ -30,19 +31,18 @@
                   </tr>
                   </thead>
                   <tbody>
+                    @foreach($payment as $key => $pay)
                   <tr>
-                    <td>a</td>
-                     <td>Trident</td>
-                     <td>Internet
-                      Explorer 4.0
-                     </td>
-                     <td>Win 95+</td>
-                     <td>a</td>
-                     <td><a href="{{route('singlecustomers')}}">detail</a></td>
+                    <td>{{++$key}}</td>
+                     <td>{{App\Models\Customer::where('id',$pay->customer_id)->first()->cname}}</td>
+                     <td>{{$pay->total_payment}}</td>
+                     <td>{{$pay->remaing_payment}}</td>
+                     <td>{{$pay->status}}</td>
+                     <td><a href="{{url('singlecustomer/'.$pay->customer_id)}}" class="btn btn-primary">Detail</a></td>
                      
                      
                   </tr>
-                 
+                 @endforeach
                 
                   </tbody>
                  

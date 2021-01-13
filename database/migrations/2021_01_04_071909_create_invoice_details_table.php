@@ -25,6 +25,7 @@ class CreateInvoiceDetailsTable extends Migration
             $table->string('punjabincometax');
             $table->string('ddate');
             $table->string('subtotal');
+            $table->string('status');
             $table->timestamps();
         });
     }
