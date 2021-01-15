@@ -525,12 +525,12 @@ a {
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">GST TAX 17%</td>
-                            <td>$1,300.00</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">GRAND TOTAL</td>
-                            <td>$6,500.00</td>
+                            <td>{{$invoicedetail->grandtotal}}</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -573,7 +573,7 @@ a {
                                                        
                                                         <tr class="total">
                                                             <td  width="80%" class="text-dark">GRAND TOTAL</td>
-                                                            <td class="text-dark">$ 36.00</td>
+                                                            <td class="text-dark">{{$invoicedetail->grandtotal}}</td>
                                                         </tr>
                                                     </tbody></table>
                                                 </td>

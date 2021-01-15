@@ -14,7 +14,7 @@ class InvoiceController extends Controller
 {
     public function insertinvoice(Request $request){
 
-
+                    // return $request;
          $data=$request->validate([
               'trade_name'=>'required|max:255',
                'customer_id'=>'required|max:255',
@@ -26,11 +26,69 @@ class InvoiceController extends Controller
                'ddate'=>'required|max:255',
                'punjabincometax'=>'required|max:255',
                'subtotal'=>'required|max:255',
+               
         ]);
+
+      if($request['gsttax'] == '17')
+      {
+             $gst=$request['subtotal']/100*17;
+             //return $gst;        
+      }
+
+      else
+      {
+
+         $gst=0;
+        
+      }
+     if($request['psttax'] == '16')
+      {
+             $pst=$request['subtotal']/100*16;
+            //return $pst;        
+      }
+
+      else
+      {
+
+         $pst=0;
+        
+      }
+      if($request['incometax'] == '4.5')
+      {
+             $incometax=$request['subtotal']/100*4.5;
+             //return $incometax;        
+      }
+
+      else
+      {
+
+         $incometax=0;
+        
+      }
+      if($request['punjabincometax'] == '10')
+      {
+             $punjabincometax=$request['subtotal']/100*10;
+             //return $punjabincometax;        
+      }
+
+      else
+      {
+
+         $punjabincometax=0;
+        
+      }
+
+          $total=$gst+$pst+$incometax+$punjabincometax;
+
+        //return $total;
+                 
+          
 
 			         $create=new InvoiceDetail($data);
                $create->status='unpaid';
+               $create->grandtotal=$total;
 			         $create->save();
+              // return $create;
 			         $invoice_id=$create->id;
 
 			   if(count($request->qty) > 0)        

@@ -26,6 +26,7 @@ class CreateInvoiceDetailsTable extends Migration
             $table->string('ddate');
             $table->string('subtotal');
             $table->string('status');
+            $table->string('grandtotal');
             $table->timestamps();
         });
     }

@@ -191,9 +191,9 @@ $('.addRow2').on('click', function(){
              
              '<td><select class="form-control major1"   name="particular[]">'+
                '<option value="" selected="">status</option>'+
-              '@foreach($particular as $for)'+
+              ' @foreach($particular as $for)'+
 
-                '<option>{{$for->particular}}</option>'+
+                '<option value="{{App\Models\VendorProduct::where('id',$for->product_id)->first()->id}}">{{App\Models\VendorProduct::where('id',$for->product_id)->first()->product}}</option>'+
 
               '@endforeach'+
             '</select></td>'+
