@@ -78,7 +78,7 @@ class InvoiceController extends Controller
         
       }
 
-          $total=$gst+$pst+$incometax+$punjabincometax;
+          $total=$request['subtotal']+$gst+$pst+$incometax+$punjabincometax;
 
         //return $total;
                  
