@@ -14,7 +14,7 @@ class InvoiceController extends Controller
 {
     public function insertinvoice(Request $request){
 
-                    // return $request;
+                    //return $request;
          $data=$request->validate([
               'trade_name'=>'required|max:255',
                'customer_id'=>'required|max:255',
@@ -80,7 +80,7 @@ class InvoiceController extends Controller
 
           $total=$request['subtotal']+$gst+$pst+$incometax+$punjabincometax;
 
-        //return $total;
+       // return $total;
                  
           
 
@@ -88,7 +88,7 @@ class InvoiceController extends Controller
                $create->status='unpaid';
                $create->grandtotal=$total;
 			         $create->save();
-              // return $create;
+              //return $create;
 			         $invoice_id=$create->id;
 
 			   if(count($request->qty) > 0)        
@@ -135,8 +135,11 @@ class InvoiceController extends Controller
 
 
           $customerinfo=Customer::where('id',$request['customer_id'])->first();
+           $invoicedetail=InvoiceDetail::where('id',$invoice_id)->first();
           $invoiceservice=InvoiceService::where('invoice_id',$invoice_id)->get();
-          $invoicedetail=InvoiceDetail::where('customer_id',$request['customer_id'])->first();
+         
+
+          //return $invoicedetail;
           $trader=trader::where('id',$request->trade_name)->first();
 
 

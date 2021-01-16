@@ -115,5 +115,18 @@ class SlipController extends Controller
 
 
      }
+
+     public function detailinvoice($id){
+
+
+
+      //return $id;
+
+
+        $SlipInvoice=SlipInvoice::where('slip_id',$id)->get();
+
+        //return $SlipInvoice;
+        return  view('slip.invoicedetail',compact('SlipInvoice'));
+     }
     
 }

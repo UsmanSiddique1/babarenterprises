@@ -508,7 +508,7 @@ a {
                         @foreach($invoiceservice as $key =>  $invoice)
                         <tr>
                             <td class="no">{{++$key}}</td>
-                            <td class="text-left"><h3>{{$invoice->particular}}</h3> 
+                            <td class="text-left"><h3>{{App\Models\VendorProduct::where('id',$invoice->particular)->first()->product}}</h3> 
                             </td>
                             <td class="unit ">{{$invoice->qty}}</td>
                            <td class="unit">{{App\Models\VendorService::where('particular',$invoice->particular)->first()->srate}}</td>
@@ -525,7 +525,7 @@ a {
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">GST TAX 17%</td>
-                            <td></td>
+                            <td>17%</td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>

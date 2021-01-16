@@ -67,6 +67,7 @@
                      <th>GOVT Return Bill</th>
                      <th>Check Number</th>
                      <th>Check Date</th>
+                     <th>Slip Detail</th>
                     
                     
                   
@@ -82,6 +83,7 @@
                     <td>{{$in->gslip}}</td>
                     <td>{{$in->cnumber}}</td>
                     <td>{{$in->cdate}}</td>
+                    <td><a href="{{url('detailinvoice/'.$in->id)}}" class="btn btn-primary">Detail</a></td>
                   </tr>
               @endforeach
                 

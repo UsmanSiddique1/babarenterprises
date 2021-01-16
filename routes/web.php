@@ -84,7 +84,7 @@ Route::get('add-major-department',[DepartmentController::class,'addmajordepartme
 Route::post('insertslip',[SlipController::class,'insertslip'])->name('insertslips');
  Route::get('view-invoice',[SlipController::class,'viewinvoice'])->name('viewinvoice');
  Route::post('serachcustomer',[SlipController::class,'serachcustomer'])->name('serachcustomer');
-
+ Route::get('detailinvoice/{id}',[SlipController::class,'detailinvoice'])->name('detailinvoice');
 
 
  //assistant

@@ -54,7 +54,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="add-vendor" class="nav-link">
+                <a href="{{url('add-vendor')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Vendor</p>
                 </a>
