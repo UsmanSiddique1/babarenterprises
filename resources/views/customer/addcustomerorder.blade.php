@@ -85,16 +85,16 @@
         <tbody>
           <tr>
             
-             <td><select class="form-control major1"   name="particular[]">
+             <td><select class="form-control rate"   name="particular[]">
                <option value="" selected="">status</option>
               @foreach($particular as $for)
 
-                <option value="{{App\Models\VendorProduct::where('id',$for->product_id)->first()->id}}">{{App\Models\VendorProduct::where('id',$for->product_id)->first()->product}}</option>
+                <option  data-quantity="{{App\Models\Inventry::where('id',$for->product_id)->first()->qty}}" data-value="{{App\Models\VendorService::where('particular',$for->product_id)->first()->srate}}" value="{{App\Models\VendorProduct::where('id',$for->product_id)->first()->id}}">{{App\Models\VendorProduct::where('id',$for->product_id)->first()->product}}</option>
 
               @endforeach
             </select></td>
-             <td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]" ></td>
-             <td><input  class="form-control" type="text"  placeholder="amount" name="amount[]" ></td>
+             <td><input  class="form-control quantity" type="text"  placeholder="Qty" name="qty[]" ></td>
+             <td><input  class="form-control amount" type="text"  placeholder="amount" name="amount[]" ></td>
              
             
             <td><a href="#" class="btn btn-danger remove" onclick="event.preventDefault()">Remove</a></td>
@@ -150,7 +150,7 @@
                   
                     <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Sub Total</label>
-                    <input type="text" class="form-control"  placeholder="Sub Total" name="subtotal">
+                    <input type="text" class="form-control stotal"  placeholder="Sub Total" name="subtotal">
                   </div>
                    
                 </div>
@@ -189,16 +189,16 @@ $('.addRow2').on('click', function(){
             
              
              
-             '<td><select class="form-control major1"   name="particular[]">'+
+             '<td><select class="form-control rate"   name="particular[]">'+
                '<option value="" selected="">status</option>'+
               ' @foreach($particular as $for)'+
 
-                '<option value="{{App\Models\VendorProduct::where('id',$for->product_id)->first()->id}}">{{App\Models\VendorProduct::where('id',$for->product_id)->first()->product}}</option>'+
+                '<option data-value="{{App\Models\VendorService::where('particular',$for->product_id)->first()->srate}}" value="{{App\Models\VendorProduct::where('id',$for->product_id)->first()->id}}">{{App\Models\VendorProduct::where('id',$for->product_id)->first()->product}}</option>'+
 
               '@endforeach'+
             '</select></td>'+
-                        '<td><input  class="form-control" type="text"  placeholder="Qty" name="qty[]"></td>'+
-                     '<td><input  class="form-control" type="text"  placeholder="amount" name="amount[]" ></td>'+
+                        '<td><input  class="form-control quantity" type="text"  placeholder="Qty" name="qty[]"></td>'+
+                     '<td><input  class="form-control amount" type="text"  placeholder="amount" name="amount[]" ></td>'+
                                                  
             '<td><a href="#" class="btn btn-danger remove" onclick="event.preventDefault()">Remove</a></td>'+
             
@@ -208,6 +208,7 @@ $('.addRow2').on('click', function(){
 
   $('tbody').on('click', '.remove', function(){
        $(this).parent().parent().remove();
+
 
   });
 
@@ -256,5 +257,46 @@ $('.addRow2').on('click', function(){
 
 
     });
+
+
+
+       $('tbody').delegate('.quantity,.rate','keyup',function(){
+        
+        var tr=$(this).parent().parent();
+        var rate=tr.find('.rate option:selected').data('value');
+        console.log(rate);
+        var quantity=tr.find('.quantity').val();
+        var amount=(quantity*rate);
+
+        //console.log(amount)
+
+        tr.find('.amount').val(amount);
+
+
+        total();
+          
+
+       });
+     function total(){
+    
+    var stotal=0;
+
+    $('.amount').each(function(i,e){
+     
+         var amount=$(this).val()-0;
+
+             stotal+=amount;
+
+
+
+    })
+
+      console.log(stotal)
+
+      $('.stotal').val(stotal);
+
+     }
+
+
 </script>
 @endsection

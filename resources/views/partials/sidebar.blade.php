@@ -36,7 +36,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add-order-customer" class="nav-link">
+                <a href="{{url('add-order-customer')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Invoice</p>
                 </a>
@@ -48,7 +48,7 @@
                 </a>
               </li> -->
               <li class="nav-item">
-                <a href="add-order" class="nav-link">
+                <a href="{{url('add-order')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Bill</p>
                 </a>
@@ -61,13 +61,13 @@
               </li>
              
               <li class="nav-item">
-                <a href="add-customer" class="nav-link">
+                <a href="{{url('add-customer')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Customer</p>
                 </a>
               </li>
                <li class="nav-item">
-                <a href="add-slip" class="nav-link">
+                <a href="{{url('add-slip')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Govt Slip</p>
                 </a>
@@ -85,25 +85,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add-customer" class="nav-link">
+                <a href="{{url('add-customer')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Customer</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-all-customer" class="nav-link">
+                <a href="{{url('view-all-customer')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Customer</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="add-order-customer" class="nav-link">
+                <a href="{{url('add-order-customer')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Customer Order</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-customer-order" class="nav-link">
+                <a href="{{url('view-customer-order')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Customer Order</p>
                 </a>
@@ -121,32 +121,32 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add-vendor" class="nav-link">
+                <a href="{{url('add-vendor')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Vendor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-all-vendor" class="nav-link">
+                <a href="{{url('view-all-vendor')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Vendor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="add-order" class="nav-link">
+                <a href="{{url('add-order')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Order</p>
                 </a>
               </li>
               
               <li class="nav-item">
-                <a href="view-order" class="nav-link">
+                <a href="{{url('view-order')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Order</p>
                 </a>
               </li>
                <li class="nav-item">
-                <a href="inventry" class="nav-link">
+                <a href="{{url('inventry')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Inventry</p>
                 </a>
@@ -163,7 +163,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="view-status" class="nav-link">
+                <a href="{{url('view-status')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Status</p>
                 </a>
@@ -180,19 +180,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add-major-department" class="nav-link">
+                <a href="{{url('view-status')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Add Major Department</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="add-sub-department" class="nav-link">
+                <a href="{{url('add-sub-department')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Sub Department</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-department" class="nav-link">
+                <a href="{{url('view-department')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Departments Details</p>
                 </a>
@@ -209,13 +209,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add-slip" class="nav-link">
+                <a href="{{url('add-slip')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create Slip</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-slip" class="nav-link">
+                <a href="{{url('view-slip')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Slip</p>
                 </a>
@@ -232,13 +232,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add-assistant" class="nav-link">
+                <a href="{{url('add-assistant')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create Assistant</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-assistant" class="nav-link">
+                <a href="{{url('view-assistant')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Assistant</p>
                 </a>
@@ -255,13 +255,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add-trader" class="nav-link">
+                <a href="{{url('add-trader')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create Traders</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-trader" class="nav-link">
+                <a href="{{url('view-trader')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View All Traders</p>
                 </a>
@@ -301,25 +301,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="add-product1" class="nav-link">
+                <a href="{{url('add-product1')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Product & Service</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-service" class="nav-link">
+                <a href="{{url('view-service')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Product & Service</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="add-category" class="nav-link">
+                <a href="{{url('add-category')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Product & Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="view-category" class="nav-link">
+                <a href="{{url('view-category')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Product & Category</p>
                 </a>

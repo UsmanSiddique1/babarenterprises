@@ -10,6 +10,7 @@ use App\Http\Controllers\SlipController;
 use App\Http\Controllers\AssistantController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\TraderController;
+use App\Http\Controllers\HomeCOntroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,11 +25,7 @@ use App\Http\Controllers\TraderController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('home-page',function(){
-
-   return view('homepage');
-
-});
+Route::get('home-page',[HomeCOntroller::class,'homepage'])->name('homepage');
 
 //customer
  Route::get('add-customer',[CustomerController::class,'addcustomer'])->name('addcustomer');
@@ -62,6 +59,8 @@ Route::post('editservice',[VendorController::class,'editservice'])->name('editse
  //payment
 Route::get('view-status',[PaymentController::class,'viewstatus'])->name('viewstatus');
 Route::get('singlecustomer/{customer_id}',[PaymentController::class,'singlecustomer'])->name('singlecustomers');
+Route::get('viewinvoice/{id}',[PaymentController::class,'viewinvoice'])->name('viewinvoice');
+
 
 //department
 Route::get('add-major-department',[DepartmentController::class,'addmajordepartment'])->name('addmajordepartment');

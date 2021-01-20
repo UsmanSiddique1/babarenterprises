@@ -111,7 +111,7 @@ class InvoiceController extends Controller
                         $product=$data2['particular'];
                         $productqty=$data2['qty'];
                         $create=Inventry::where('product_id',$product)->first();
-                       
+                       return $create;
                               $updateqty=$create->qty-$productqty;
                               $create->qty=$updateqty;
                               $create->save();

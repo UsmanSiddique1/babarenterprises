@@ -39,7 +39,7 @@
                      <td>{{App\Models\SubDepartment::where('id',$in->sdpt_id)->first()->sname}}</td>
                      <td>{{$in->id}}</td>
                      <td>{{$in->status}}</td>
-                     <td>a</td>
+                     <td><a href="{{url('viewinvoice/'.$in->id)}}" class="btn btn-primary">View Invoice</a></td>
                      
                      
                   </tr>
