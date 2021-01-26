@@ -85,11 +85,11 @@
         <tbody>
           <tr>
             
-             <td><select class="form-control rate"   name="particular[]">
+             <td><select class="form-control rate "   name="particular[]">
                <option value="" selected="">status</option>
               @foreach($particular as $for)
 
-                <option  data-quantity="{{App\Models\Inventry::where('id',$for->product_id)->first()->qty}}" data-value="{{App\Models\VendorService::where('particular',$for->product_id)->first()->srate}}" value="{{App\Models\VendorProduct::where('id',$for->product_id)->first()->id}}">{{App\Models\VendorProduct::where('id',$for->product_id)->first()->product}}</option>
+                <option  data-quantitys="{{App\Models\Inventry::where('id',$for->product_id)->first()->qty}}" data-value="{{App\Models\VendorService::where('particular',$for->product_id)->first()->srate}}" value="{{App\Models\VendorProduct::where('id',$for->product_id)->first()->id}}">{{App\Models\VendorProduct::where('id',$for->product_id)->first()->product}}</option>
 
               @endforeach
             </select></td>
@@ -215,6 +215,9 @@ $('.addRow2').on('click', function(){
 
     $(document).ready(function(){
       
+            
+          
+
 
             $('.mname').change(function() {
 
@@ -253,6 +256,18 @@ $('.addRow2').on('click', function(){
 
           });
          });
+    });
+
+    
+
+    $('tbody').change(function(){
+
+
+           var tr=$(this).parent().parent();
+           var quantitys=tr.find('.rate option:selected').data('quantitys');
+           //alert(quantitys);
+
+           tr.find('.quantity').attr("max",quantitys);
 
 
 
@@ -260,12 +275,36 @@ $('.addRow2').on('click', function(){
 
 
 
+    
+
        $('tbody').delegate('.quantity,.rate','keyup',function(){
         
         var tr=$(this).parent().parent();
+        var quantitys=tr.find('.rate option:selected').data('quantitys');
+
+       // alert(quantitys);
+
         var rate=tr.find('.rate option:selected').data('value');
         console.log(rate);
         var quantity=tr.find('.quantity').val();
+
+        var max_qty = tr.find('.quantity').attr("max");
+
+     // alert(max_qty);
+        if (max_qty >= quantity) {
+
+          alert(quantity);
+
+
+        }
+
+        else{
+          alert("not allowed");
+
+
+
+          
+        }
         var amount=(quantity*rate);
 
         //console.log(amount)

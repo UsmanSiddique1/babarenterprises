@@ -102,12 +102,12 @@
                   <p>Add Customer Order</p>
                 </a>
               </li>
-              <li class="nav-item">
+             <!--  <li class="nav-item">
                 <a href="{{url('view-customer-order')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Customer Order</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 
