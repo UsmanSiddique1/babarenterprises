@@ -107,7 +107,7 @@
         <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> GST Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
-                     <select class="form-control" name="gsttax">
+                     <select class="form-control gst" name="gsttax">
                     <option value="" selected="">Option</option>
                     <option value="17">Apply GST</option>
                     <option value="0">Not Apply GST</option>
@@ -116,7 +116,7 @@
                    <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> PST Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
-                     <select class="form-control" name="psttax">
+                     <select class="form-control pst" name="psttax">
                     <option value="" selected="">Option</option>
                     <option value="16">Apply PST</option>
                     <option value="0">Not Apply PST</option>
@@ -125,7 +125,7 @@
                    <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> Income Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
-                     <select class="form-control" name="incometax">
+                     <select class="form-control income" name="incometax">
                     <option value="" selected="">Option</option>
                     <option value="4.5">Apply Income</option>
                     <option value="0">Not Apply Income</option>
@@ -134,7 +134,7 @@
                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> Punjab Income Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
-                     <select class="form-control" name="punjabincometax">
+                     <select class="form-control pincome" name="punjabincometax">
                     <option value="" selected="">Option</option>
                     <option value="10">Apply punjab Income Tax</option>
                     <option value="0">Not Apply punjab Income Tax</option>
@@ -154,7 +154,18 @@
                   </div>
                    
                 </div>
-                
+                <div class="row">
+                   <div class="form-group col-md-6">
+                    
+                  </div>
+                    
+                  
+                    <div class="form-group col-md-6">
+                    <label for="exampleInputEmail1">Total</label>
+                    <input type="text" class="form-control total"  placeholder="Total" name="subtotal">
+                  </div>
+                   
+                </div>
                   
                 </div>
                 <!-- /.card-body -->
@@ -207,6 +218,18 @@ $('.addRow2').on('click', function(){
   };
 
   $('tbody').on('click', '.remove', function(){
+        var tr=$(this).parent().parent();
+         var minus =tr.find('.amount').val();
+           // alert(minus)
+         var stotal=$('.stotal').val();
+
+         // alert(stotal)
+
+         var final=stotal-minus;
+    $('.stotal').val(final);
+    $('.total').val(final);
+
+
        $(this).parent().parent().remove();
 
 
@@ -214,9 +237,86 @@ $('.addRow2').on('click', function(){
 
 
     $(document).ready(function(){
-      
+
+
+      $('.gst').change(function(){
+
+             var a = $('.gst').val();
+              
+               //alert(a);
+
+                    if(a == 17)
+                    {
+                           
+                        var stotal = $('.stotal').val();
+
+                       var ftotal = $('.total').val();
+
+                        // alert(ftotal);
+
+                        var total =stotal/100*17;
+
+                           var gtotal= parseInt(total) + parseInt(ftotal);
+
+                      // alert(gtotal);
+
+                        $('.total').val(gtotal);
+
+
+
+                    }
+                    else
+                    {
+                        var total = $('.total').val();
+                        var ptotal =total/100*17;
+                           var l=total - ptotal;
+                        //alert(stotal);
+                           $('.total').val(l);
+
+                    }
+               
+
+          });
             
-          
+          $('.pst').change(function(){
+
+               var a = $('.pst').val();
+              
+               //alert(a);
+
+                    if(a == 16)
+                    {
+                           
+                        var stotal = $('.stotal').val();
+                        var ftotal = $('.total').val();
+
+                         //alert(ftotal);
+
+                       // alert(stotal);
+
+                        var total =stotal/100*16;
+                            //alert(total);
+
+                           var gtotal= parseInt(total)  + parseInt(ftotal);
+
+                       //alert(gtotal);
+
+                        $('.total').val(gtotal);
+
+
+
+                    }
+                    else
+                    {
+                        var stotal = $('.stotal').val();
+
+
+                           $('.total').val(stotal);
+
+                    }
+               
+
+          });
 
 
             $('.mname').change(function() {
@@ -293,13 +393,13 @@ $('.addRow2').on('click', function(){
      // alert(max_qty);
         if (max_qty >= quantity) {
 
-          alert(quantity);
+          //alert(quantity);
 
 
         }
 
         else{
-          alert("not allowed");
+         // alert("not allowed");
 
 
 
@@ -333,6 +433,8 @@ $('.addRow2').on('click', function(){
       console.log(stotal)
 
       $('.stotal').val(stotal);
+
+      $('.total').val(stotal);
 
      }
 
