@@ -108,36 +108,36 @@
                     <label for="exampleInputEmail1"> GST Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
                      <select class="form-control gst" name="gsttax">
-                    <option value="" selected="">Option</option>
-                    <option value="17">Apply GST</option>
                     <option value="0">Not Apply GST</option>
+                    <option value="17">Apply GST</option>
+                    
                   </select>
                   </div>
                    <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> PST Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
                      <select class="form-control pst" name="psttax">
-                    <option value="" selected="">Option</option>
-                    <option value="16">Apply PST</option>
                     <option value="0">Not Apply PST</option>
+                    <option value="16">Apply PST</option>
+                   
                   </select>
                   </div>
                    <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> Income Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
                      <select class="form-control income" name="incometax">
-                    <option value="" selected="">Option</option>
+                   <option value="0">Not Apply Income</option>
                     <option value="4.5">Apply Income</option>
-                    <option value="0">Not Apply Income</option>
+                    
                   </select>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="exampleInputEmail1"> Punjab Income Tax</label>
                     <!-- <input type="text" class="form-control"  placeholder="GST" name="phoneno"> -->
                      <select class="form-control pincome" name="punjabincometax">
-                    <option value="" selected="">Option</option>
-                    <option value="10">Apply punjab Income Tax</option>
                     <option value="0">Not Apply punjab Income Tax</option>
+                    <option value="10">Apply punjab Income Tax</option>
+                    
                   </select>
                   </div>
       </div>
@@ -248,17 +248,20 @@ $('.addRow2').on('click', function(){
                     if(a == 17)
                     {
                            
-                        var stotal = $('.stotal').val();
+                        // var stotal = $('.stotal').val();
 
-                       var ftotal = $('.total').val();
+                       var total = $('.total').val();
 
-                        // alert(ftotal);
+                        //alert(total);
 
-                        var total =stotal/100*17;
+                        var total1 =total/100*17;
+                              alert(total1);
+                         
+                         // var twoPlacedFloat = parseFloat((total).toFixed(2));
+                         //   alert(twoPlacedFloat);
+                           var gtotal=parseFloat(total) + parseFloat((total1).toFixed(2));
 
-                           var gtotal= parseInt(total) + parseInt(ftotal);
-
-                      // alert(gtotal);
+                       alert(gtotal);
 
                         $('.total').val(gtotal);
 
@@ -268,9 +271,19 @@ $('.addRow2').on('click', function(){
                     else
                     {
                         var total = $('.total').val();
-                        var ptotal =total/100*17;
-                           var l=total - ptotal;
-                        //alert(stotal);
+
+                         alert(total);
+
+                        var ptotal = total/100*17;
+
+                        var b =parseFloat((ptotal).toFixed(2))
+
+                        alert(b);
+
+                           var l = parseFloat(total) - parseFloat(b);
+
+                           alert(l);
+                       
                            $('.total').val(l);
 
                     }
@@ -294,7 +307,7 @@ $('.addRow2').on('click', function(){
 
                        // alert(stotal);
 
-                        var total =stotal/100*16;
+                        var total =ftotal/100*16;
                             //alert(total);
 
                            var gtotal= parseInt(total)  + parseInt(ftotal);
@@ -308,17 +321,99 @@ $('.addRow2').on('click', function(){
                     }
                     else
                     {
-                        var stotal = $('.stotal').val();
+                        var total = $('.total').val();
 
 
-                           $('.total').val(stotal);
-
+                           var ptotal =total/100*16;
+                           var l=parseInt(total)  - parseInt(ptotal);;
+                      //  alert(ptotal);
+                           $('.total').val(l);
                     }
                
 
           });
+$('.income').change(function(){
+
+               var a = $('.income').val();
+              
+               //alert(a);
+
+                    if(a == 4.5)
+                    {
+                           
+                        var stotal = $('.stotal').val();
+                        var ftotal = $('.total').val();
+
+                         //alert(ftotal);
+
+                       // alert(stotal);
+
+                        var total =ftotal/100*4.5;
+                            //alert(total);
+
+                           var gtotal= parseInt(total)  + parseInt(ftotal);
+
+                       //alert(gtotal);
+
+                        $('.total').val(gtotal);
 
 
+
+                    }
+                    else
+                    {
+                        var total = $('.total').val();
+
+
+                           var ptotal =total/100*4.5;
+                           var l=parseInt(total)  - parseInt(ptotal);;
+                       alert(ptotal);
+                           $('.total').val(l);
+                    }
+               
+
+          });
+$('.pincome').change(function(){
+
+               var a = $('.pincome').val();
+              
+               //alert(a);
+
+                    if(a == 10)
+                    {
+                           
+                        var stotal = $('.stotal').val();
+                        var ftotal = $('.total').val();
+
+                         //alert(ftotal);
+
+                       // alert(stotal);
+
+                        var total =ftotal/100*10;
+                            //alert(total);
+
+                           var gtotal= parseInt(total)  + parseInt(ftotal);
+
+                       //alert(gtotal);
+
+                        $('.total').val(gtotal);
+
+
+
+                    }
+                    else
+                    {
+                        var total = $('.total').val();
+
+
+                           var ptotal =total/100*10;
+                           var l=parseInt(total)  - parseInt(ptotal);
+                        alert(ptotal);
+                           $('.total').val(l);
+                    }
+               
+
+          });
             $('.mname').change(function() {
 
               var mname = $('.mname').val();
